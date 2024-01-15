@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import fashioncart from '../../Assets/img/FASHIONCART.png'
 
 function Menu() {
   const [show, setShow] = useState(false);
@@ -12,9 +13,11 @@ function Menu() {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary" sticky="top">
       <Container>
-        <Navbar.Brand href="/">FASHION CART</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <img src={fashioncart} alt="fashion-cart" width={'150px'}/>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="m-auto">
@@ -32,7 +35,7 @@ function Menu() {
             />
             <Button variant="outline-success">Search</Button>
           </Form>
-          <Link href="/login">
+          <Link to="/login">
             <Button variant="primary" className="mt-2 mt-lg-0 me-2">
               Login
             </Button>

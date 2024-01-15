@@ -5,9 +5,9 @@ import { Card } from 'react-bootstrap'
 const Item = (props) => {
     return (
         <>
-            <div className="col-md-4 mb-4">
-                <Card style={{ width: '18rem', boxShadow: '4px 4px 5px #ccc' }} className="item-container h-100 p-2">
-                    <Card.Img variant="top" src={props.image} alt={props.name} style={{ height: '250px' }} className="p-3" />
+            <div className="col-md-4 col-lg-3 mb-4">
+                <Card style={{ boxShadow: '4px 4px 5px #ccc' }} className="item-container h-100 p-2">
+                    <Card.Img variant="top" src={props.image} alt={props.name} />
                     <Card.Body style={{ borderTop: '1px solid #aaa' }}>
                         <Card.Title>{props.name}</Card.Title>
                         <Card.Text className='d-flex justify-content-around'>

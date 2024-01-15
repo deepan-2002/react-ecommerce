@@ -1,0 +1,10 @@
+.item-container .new-price{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item-container .old-price{
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #434343;
+}

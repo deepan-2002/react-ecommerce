@@ -1,0 +1,10 @@
+.product-details {
+    background-color: #e3e3e3;
+    padding: 20px;
+    text-align: justify;
+}
+
+.product-details .container {
+    background-color: #fff;
+    padding: 40px;
+}

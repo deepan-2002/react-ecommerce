@@ -1,0 +1,33 @@
+.footer-list{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.footer-list a{
+    padding-right: 50px;
+    text-decoration: none;
+    color: black;
+}
+
+.icon-container a {
+    margin: 0 1rem;
+    color: black;
+    font-size: 1.5rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-list a:hover, .icon-container a:hover {
+    color: #D61212;
+}
+
+.copyright {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    bottom: 0;
+}
+
+.copyright a {
+    color: #D61212;
+    text-decoration: none;
+}

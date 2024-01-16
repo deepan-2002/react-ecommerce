@@ -36,7 +36,7 @@ function Menu() {
             <Button variant="outline-success">Search</Button>
           </Form>
           <Link to="/login">
-            <Button variant="primary" className="mt-2 mt-lg-0 me-2">
+            <Button variant="danger" className="mt-2 mt-lg-0 me-2">
               Login
             </Button>
           </Link>

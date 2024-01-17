@@ -1,6 +1,8 @@
 import React from 'react'
 import './ProductDisplay.css'
 import { Button } from 'react-bootstrap'
+import data_product from '../../Assets/Data/data'
+import Item from '../Item/Item'
 
 const ProductDisplay = (props) => {
     const { product } = props
@@ -20,6 +22,18 @@ const ProductDisplay = (props) => {
                             </div>
                             <Button variant='danger'>Add to Cart</Button>
                         </div>
+                    </div>
+                </div>
+                <div className='container related-products'>
+                    <div>
+                        <p className='title'>
+                            Related Products
+                        </p>
+                    </div>
+                    <div className='row justify-content-center'>
+                        {data_product.map((item, id) => (
+                            <Item key={id} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
+                        ))}
                     </div>
                 </div>
             </div>

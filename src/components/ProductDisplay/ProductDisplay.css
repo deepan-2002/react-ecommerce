@@ -21,3 +21,7 @@
     font-weight: 600;
     padding-right: 25px;
 }
+
+.product-details .related-products{
+    background-color: transparent;
+}

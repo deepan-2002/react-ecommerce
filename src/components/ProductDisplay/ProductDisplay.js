@@ -1,5 +1,6 @@
 import React from 'react'
 import './ProductDisplay.css'
+import { Button } from 'react-bootstrap'
 
 const ProductDisplay = (props) => {
     const { product } = props
@@ -13,8 +14,11 @@ const ProductDisplay = (props) => {
                         </div>
                         <div className="col-md-6 my-auto">
                             <h2>{product.name}</h2>
-                            <h4>₹ {product.old_price}</h4>
-                            <h5>₹ {product.new_price}</h5>
+                            <div className='d-flex'>
+                                <p className='new_price'>₹ {product.new_price}</p>
+                                <p className='old_price'>₹ {product.old_price}</p>
+                            </div>
+                            <Button variant='danger'>Add to Cart</Button>
                         </div>
                     </div>
                 </div>

@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 const Item = (props) => {
     return (
         <>
-            <div className="col-6 col-md-4 col-lg-3 mb-4">
-                <Link to={`/product/${props.id}`}>
+            <div className="col-6 col-md-3 mb-4">
+                <Link to={`/product/${props.id}`} onClick={()=>window.scrollTo(0,0)}>
                     <Card style={{ boxShadow: '4px 4px 5px #ccc' }} className="item-container h-100 p-2">
                         <Card.Img variant="top" src={props.image} alt={props.name} />
                         <Card.Body style={{ borderTop: '1px solid #aaa' }}>

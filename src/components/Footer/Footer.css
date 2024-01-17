@@ -1,13 +1,17 @@
 .footer-list{
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     justify-content: center;
 }
 
 .footer-list a{
     padding-right: 50px;
+    padding-bottom: 20px;
     text-decoration: none;
     color: black;
+    transition: color 0.2s ease-in-out;
+
 }
 
 .icon-container a {
@@ -18,7 +22,7 @@
 }
 
 .footer-list a:hover, .icon-container a:hover {
-    color: #D61212;
+    color: var(--primary);
 }
 
 .copyright {

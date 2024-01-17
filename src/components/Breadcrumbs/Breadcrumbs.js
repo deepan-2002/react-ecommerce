@@ -8,7 +8,7 @@ const Breadcrumbs = (props) => {
     <Container>
     <Breadcrumb>
       <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-      <Breadcrumb.Item href={product.category}>
+      <Breadcrumb.Item href={`/${product.category}`}>
         {product.category}
       </Breadcrumb.Item>
       <Breadcrumb.Item active>

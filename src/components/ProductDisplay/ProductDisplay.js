@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './ProductDisplay.css'
 import { Button } from 'react-bootstrap'
 import data_product from '../../Assets/Data/data'
 import Item from '../Item/Item'
+import { ShopContext } from '../../Context/ShopContext'
 
 const ProductDisplay = (props) => {
     const { product } = props
+    const { addToCart } = useContext(ShopContext)
+
     return (
         <>
             <div className='product-details'>
@@ -20,7 +23,7 @@ const ProductDisplay = (props) => {
                                 <p className='new_price'>₹ {product.new_price}</p>
                                 <p className='old_price'>₹ {product.old_price}</p>
                             </div>
-                            <Button variant='danger'>Add to Cart</Button>
+                            <Button variant='danger' onClick={()=>addToCart(product.id)}>Add to Cart</Button>
                         </div>
                     </div>
                 </div>

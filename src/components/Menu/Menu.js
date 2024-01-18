@@ -5,6 +5,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import fashioncart from '../../Assets/img/FASHIONCART.png'
+import CartItems from "../CartItems/CartItems";
 
 function Menu() {
   const [show, setShow] = useState(false);
@@ -49,8 +50,7 @@ function Menu() {
               <Offcanvas.Title>Cart Items</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              Some text as placeholder. In real life you can have the elements you
-              have chosen. Like, text, images, lists, etc.
+              <CartItems/>
             </Offcanvas.Body>
           </Offcanvas>
         </Navbar.Collapse>

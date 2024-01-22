@@ -8,7 +8,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 const Footer = () => {
   return (
     <>
-      <div className='container section-container text-center'>
+      <footer className='text-center bg'>
         <img src={fashionCart} alt='Fashion Cart' className='img-fluid' width={'200px'} />
         <ul className='footer-list mt-4'>
           <a href='/'><li>Company</li></a>
@@ -18,10 +18,10 @@ const Footer = () => {
           <a href='/'><li>Contact</li></a>
         </ul>
         <div className='icon-container'>
-          <a href='tel: +917339003664'><FontAwesomeIcon icon={faPhone} /></a>
-          <a href='mailto: deebanyathiraja2002@gmail.com'><FontAwesomeIcon icon={faEnvelope} /></a>
-          <a href='/'><FontAwesomeIcon icon={faInstagram} /></a>
-          <a href='/'><FontAwesomeIcon icon={faFacebook} /></a>
+          <a href='/'><FontAwesomeIcon icon={faPhone} /></a>
+          <a href='/'><FontAwesomeIcon icon={faEnvelope} /></a>
+          <a href='https://www.instagram.com/'><FontAwesomeIcon icon={faInstagram} /></a>
+          <a href='https://www.facebook.com/'><FontAwesomeIcon icon={faFacebook} /></a>
         </div>
         <hr />
         <div className='copyright'>
@@ -29,7 +29,7 @@ const Footer = () => {
             Copyright &copy; 2024 - <a href='https://github.com/deepan-2002'>Deeban Yathiraja</a> - All Rights Reserved
           </p>
         </div>
-      </div>
+      </footer>
     </>
   )
 }

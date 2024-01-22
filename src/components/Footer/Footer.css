@@ -1,3 +1,12 @@
+footer{
+    margin: 20px 0 0 0;
+    padding: 20px 0;
+}
+
+footer p{
+    margin: 0;
+}
+
 .footer-list{
     display: flex;
     flex-wrap: wrap;
@@ -9,21 +18,20 @@
     padding-right: 50px;
     padding-bottom: 20px;
     text-decoration: none;
-    color: black;
     transition: color 0.2s ease-in-out;
-
+    color: inherit;
 }
 
 .icon-container a {
     margin: 0 1rem;
-    color: black;
     font-size: 1.5rem;
     transition: color 0.2s ease-in-out;
+    color: inherit;
 }
 
-.footer-list a:hover, .icon-container a:hover {
+/* .footer-list a:hover, .icon-container a:hover {
     color: var(--primary);
-}
+} */
 
 .copyright {
     margin-top: 1.5rem;

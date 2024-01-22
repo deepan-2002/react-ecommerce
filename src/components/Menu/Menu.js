@@ -1,4 +1,4 @@
-import { Button, Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Badge, Button, Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import './Menu.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
@@ -14,10 +14,11 @@ function Menu() {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" sticky="top">
+    <Navbar expand="lg" sticky="top" data-bs-theme="dark">
       <Container>
         <Navbar.Brand href="/">
-          <img src={fashioncart} alt="fashion-cart" width={'150px'} />
+          {/* <img src={fashioncart} alt="fashion-cart" width={'150px'} /> */}
+          FASHIONCART
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -34,14 +35,14 @@ function Menu() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-light">Search</Button>
           </Form>
           <Link to="/login">
-            <Button variant="danger" className="mt-2 mt-lg-0 me-2">
+            <Button variant="light" className="mt-2 mt-lg-0 me-2">
               Login
             </Button>
           </Link>
-          <Button variant="warning" className="mt-2 mt-lg-0" onClick={handleShow}>
+          <Button variant="light" className="mt-2 mt-lg-0" onClick={handleShow}>
             <FontAwesomeIcon icon={faCartShopping} />
           </Button>
 

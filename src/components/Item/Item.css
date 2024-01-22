@@ -2,8 +2,8 @@
     transition: 500ms;
 }
 
-.item-container:hover{
-    background-color: #e0e0e0 !important;
+.card:hover{
+    box-shadow: 4px 4px 5px #ccc;
 }
 
 .item-container .new-price{
@@ -20,6 +20,19 @@
 .item-container .card-title{
     font-size: 16px;
 }
+
+.item-container .price-container{
+    display: flex;
+    gap: 10px;
+}
+
+.item-container .cart-btn-container{
+    align-self: flex-end;
+}
+
+/* .item-container .cart-btn-container button {
+font-size: 12px;
+} */
 
 @media only screen and (max-width: 600px) {
     .item-container .card-title{

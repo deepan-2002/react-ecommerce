@@ -23,7 +23,7 @@ const ProductDisplay = (props) => {
                                 <p className='new_price'>₹ {product.new_price}</p>
                                 <p className='old_price'>₹ {product.old_price}</p>
                             </div>
-                            <Button variant='danger' onClick={()=>addToCart(product.id)}>Add to Cart</Button>
+                            <Button variant='dark' onClick={()=>addToCart(product.id)}>Add to Cart</Button>
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import './CartOffcanvas.css';
 import './CartItems.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Button, ButtonGroup } from 'react-bootstrap';
 
 const CartItems = () => {
     const { all_product, addToCart, removeFromCart, cartItems, getTotalCartItem } = useContext(ShopContext);
@@ -23,7 +24,7 @@ const CartItems = () => {
                                     <img src={e.image} alt={e.name} className='cart-img' />
                                     <p className='cart-title w-25'>{e.name}</p>
                                     <p className='cart-price'>{e.new_price}</p>
-                                    <div className='add-btn-container'>
+                                    {/* <div className='add-btn-container'>
                                         <button onClick={() => removeFromCart(e.id)}>
                                             <FontAwesomeIcon icon={faMinus} />
                                         </button>
@@ -31,7 +32,18 @@ const CartItems = () => {
                                         <button onClick={() => addToCart(e.id)}>
                                             <FontAwesomeIcon icon={faPlus} />
                                         </button>
-                                    </div>
+                                    </div> */}
+                                    <ButtonGroup>
+                                        <Button variant="dark" onClick={() => removeFromCart(e.id)}>
+                                            <FontAwesomeIcon icon={faMinus} />
+                                        </Button>
+                                        <Button variant='dark'>
+                                            {cartItems[e.id]}
+                                        </Button>
+                                        <Button variant="dark" onClick={() => addToCart(e.id)}>
+                                            <FontAwesomeIcon icon={faPlus} />
+                                        </Button>
+                                    </ButtonGroup>
                                     <p className='item-total'>{e.new_price * cartItems[e.id]}</p>
                                 </div>
                             </div>

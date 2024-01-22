@@ -9,6 +9,7 @@ import men_banner from './Assets/img/banner_mens.png'
 import women_banner from './Assets/img/banner_women.png'
 import kids_banner from './Assets/img/banner_kids.png'
 import Product from './pages/Product/Product';
+import Cart from './pages/Cart/Cart';
 
 
 function App() {
@@ -19,12 +20,13 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/men' element={<Categories banner={men_banner} category='men'/>}/>
-          <Route path='/women' element={<Categories banner={women_banner} category='women'/>}/>
-          <Route path='/kid' element={<Categories banner={kids_banner} category='kid'/>}/>
-          <Route path='/product' element={<Product/>}>
-            <Route path=':productId' element={<Product/>}/>
+          <Route path='/men' element={<Categories banner={men_banner} category='men' />} />
+          <Route path='/women' element={<Categories banner={women_banner} category='women' />} />
+          <Route path='/kid' element={<Categories banner={kids_banner} category='kid' />} />
+          <Route path='/product' element={<Product />}>
+            <Route path=':productId' element={<Product />} />
           </Route>
+          <Route path='/cart' element={<Cart />} />
         </Routes>
         <Footer />
       </BrowserRouter>

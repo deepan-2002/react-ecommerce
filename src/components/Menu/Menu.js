@@ -17,7 +17,7 @@ function Menu() {
     <Navbar expand="lg" className="bg-body-tertiary" sticky="top">
       <Container>
         <Navbar.Brand href="/">
-          <img src={fashioncart} alt="fashion-cart" width={'150px'}/>
+          <img src={fashioncart} alt="fashion-cart" width={'150px'} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -50,7 +50,12 @@ function Menu() {
               <Offcanvas.Title>Cart Items</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <CartItems/>
+              <CartItems />
+              <div>
+                <Link to={'/cart'}>
+                  <button className='view-cart' onClick={handleClose}>View Cart</button>
+                </Link>
+              </div>
             </Offcanvas.Body>
           </Offcanvas>
         </Navbar.Collapse>

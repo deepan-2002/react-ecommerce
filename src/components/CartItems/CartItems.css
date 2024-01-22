@@ -1,0 +1,19 @@
+.cart-page{
+    min-height: 80vh;
+}
+
+.cart-page .cart-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: smaller;
+}
+
+.cart-page .cart-img{
+    width: 200px;
+}
+
+.add-btn-container{
+    display: flex;
+    gap: 15px;
+}

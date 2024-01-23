@@ -1,9 +1,18 @@
 .item-container{
     transition: 500ms;
+    overflow: hidden;
 }
 
 .card:hover{
     box-shadow: 4px 4px 5px #ccc;
+}
+
+.card img{
+    transition: transform 0.5s ease;
+}
+
+.card img:hover{
+     transform: scale(1.05);
 }
 
 .item-container .new-price{

@@ -7,7 +7,21 @@ import { ShopContext } from '../../Context/ShopContext'
 
 const ProductDisplay = (props) => {
     const { product } = props
-    const { addToCart } = useContext(ShopContext)
+    const { addToCart, all_product } = useContext(ShopContext)
+
+    const getRandomItems = (category, count) => {
+        const categoryItems = all_product.filter(item => item.category === category);
+        const randomItems = [];
+        while (randomItems.length < count && categoryItems.length > 0) {
+            const randomIndex = Math.floor(Math.random() * categoryItems.length);
+            randomItems.push(categoryItems.splice(randomIndex, 1)[0]);
+            console.log(randomIndex);
+        }
+        console.log(randomItems);
+        return randomItems;
+    };
+
+    const relatedProducts = getRandomItems(product.category, 4);
 
     return (
         <>
@@ -23,7 +37,7 @@ const ProductDisplay = (props) => {
                                 <p className='new_price'>₹ {product.new_price}</p>
                                 <p className='old_price'>₹ {product.old_price}</p>
                             </div>
-                            <Button variant='dark' onClick={()=>addToCart(product.id)}>Add to Cart</Button>
+                            <Button variant='dark' onClick={() => addToCart(product.id)}>Add to Cart</Button>
                         </div>
                     </div>
                 </div>
@@ -34,7 +48,7 @@ const ProductDisplay = (props) => {
                         </p>
                     </div>
                     <div className='row justify-content-center'>
-                        {data_product.map((item, id) => (
+                        {relatedProducts.map((item, id) => (
                             <Item key={id} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
                         ))}
                     </div>

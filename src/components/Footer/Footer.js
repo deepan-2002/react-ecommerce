@@ -8,7 +8,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 const Footer = () => {
   return (
     <>
-      <footer className='text-center bg'>
+      <footer className='text-center bg-light'>
         <img src={fashionCart} alt='Fashion Cart' className='img-fluid' width={'200px'} />
         <ul className='footer-list mt-4'>
           <a href='/'><li>Company</li></a>

@@ -14,7 +14,7 @@ function Menu() {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar expand="lg" sticky="top" data-bs-theme="dark">
+    <Navbar expand="lg" sticky="top" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="/">
           {/* <img src={fashioncart} alt="fashion-cart" width={'150px'} /> */}
@@ -35,14 +35,14 @@ function Menu() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-light">Search</Button>
+            <Button variant="outline-dark">Search</Button>
           </Form>
           <Link to="/login">
-            <Button variant="light" className="mt-2 mt-lg-0 me-2">
+            <Button variant="dark" className="mt-2 mt-lg-0 me-2">
               Login
             </Button>
           </Link>
-          <Button variant="light" className="mt-2 mt-lg-0" onClick={handleShow}>
+          <Button variant="dark" className="mt-2 mt-lg-0" onClick={handleShow}>
             <FontAwesomeIcon icon={faCartShopping} />
           </Button>
 
@@ -54,7 +54,7 @@ function Menu() {
               <CartItems />
               <div>
                 <Link to={'/cart'}>
-                  <button className='view-cart' onClick={handleClose}>View Cart</button>
+                  <button className='view-cart btn btn-dark' onClick={handleClose}>View Cart</button>
                 </Link>
               </div>
             </Offcanvas.Body>

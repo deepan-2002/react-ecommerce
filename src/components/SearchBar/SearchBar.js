@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react'
-import { Button, Form } from 'react-bootstrap'
-import { useLocation, useNavigate } from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
-import Item from '../Item/Item'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { Button, Form } from 'react-bootstrap'
 
-export const SearchBar = () => {
+const SearchBar = () => {
     const { handleSearch } = useContext(ShopContext)
     const [searchItem, setSearchItem] = useState('')
     const navigate = useNavigate()
@@ -14,11 +13,13 @@ export const SearchBar = () => {
         e.preventDefault()
         navigate(`search-result?query=${encodeURIComponent(searchItem)}`)
         handleSearch(searchItem, location.pathname)
+        window.scrollTo(0,0)
     }
     return (
         <Form className="d-flex m-auto" onSubmit={handleSubmit}>
             <Form.Control
                 type="search"
+                name='search'
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
@@ -30,18 +31,4 @@ export const SearchBar = () => {
     )
 }
 
-const Search = () => {
-    const { all_product,searchQuery } = useContext(ShopContext)
-
-    const filteredItems = all_product.filter((product) => product.name.toLowerCase().includes(searchQuery.toLowerCase()) || product.category.toLowerCase().includes(searchQuery.toLowerCase()))
-
-    return (
-        <>
-            {filteredItems.map((item, id) => (
-                <Item key={id} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
-            ))}
-        </>
-    )
-}
-
-export default Search
+export default SearchBar

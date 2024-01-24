@@ -24,10 +24,10 @@ const ProductDisplay = (props) => {
 
     return (
         <>
-            <div className='product-details'>
-                <div className="container rounded">
+            <div className='container product-details'>
+                <div className="inner-container rounded">
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-6 text-center">
                             <img src={product.image} alt={product.name} className='img-fluid' />
                         </div>
                         <div className="col-md-6 my-auto">
@@ -40,11 +40,12 @@ const ProductDisplay = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className='container related-products'>
-                    <div>
-                        <p className='title'>
-                            Related Products
-                        </p>
+                <div className='related-products'>
+                    <p className='title mt-4'>
+                        Related Products
+                    </p>
+                    <div className='text-end'>
+                        <a href={`/${product.category}`}>View all</a>
                     </div>
                     <div className='row justify-content-center'>
                         {relatedProducts.map((item, id) => (
@@ -53,6 +54,7 @@ const ProductDisplay = (props) => {
                     </div>
                 </div>
             </div>
+            <hr />
         </>
     )
 }

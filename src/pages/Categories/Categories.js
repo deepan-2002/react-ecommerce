@@ -8,11 +8,9 @@ const Categories = (props) => {
         <>
             <img src={props.banner} alt={props.category} className='img-fluid' />
             <div className='container section-container'>
-                <div>
-                    <p className='title'>
-                        {props.category} Section
-                    </p>
-                </div>
+                <p className='title'>
+                    {props.category} Section
+                </p>
                 <div className='row justify-content-center'>
                     {all_product.map((item, id) => {
                         if (props.category === item.category) {
@@ -22,7 +20,7 @@ const Categories = (props) => {
                             return null
                         }
                     })}
-                    <hr/>
+                    <hr />
                 </div>
             </div>
         </>

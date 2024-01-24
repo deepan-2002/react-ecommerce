@@ -25,9 +25,9 @@ const Banner = () => {
     ]
     return (
         <Carousel data-bs-theme="dark">
-            {bannerData.map((slide) => (
+            {bannerData.map((slide,id) => (
 
-                <Carousel.Item>
+                <Carousel.Item key={id}>
                     <Link to={slide.link}>
                         <img
                             className="d-block w-100"

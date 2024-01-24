@@ -1,5 +1,5 @@
 footer{
-    padding: 20px 0;
+    padding: 25px 0;
 }
 
 footer p{
@@ -14,8 +14,7 @@ footer p{
 }
 
 .footer-list a{
-    padding-right: 50px;
-    padding-bottom: 20px;
+    margin-right: 50px;
     text-decoration: none;
     transition: color 0.2s ease-in-out;
     color: inherit;
@@ -39,6 +38,6 @@ footer p{
 }
 
 .copyright a {
-    color: #D61212;
+    color: var(--primary);
     text-decoration: none;
 }

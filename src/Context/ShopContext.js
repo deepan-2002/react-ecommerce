@@ -5,7 +5,7 @@ export const ShopContext = createContext(null)
 
 const getDefaultCart = () => {
     let cart = {};
-    for (let i = 0; i < all_product.length + 1; i++) {
+    for (let i = 0; i <= all_product.length; i++) {
         cart[i] = 0;
     }
     return cart;
@@ -36,14 +36,16 @@ const ContextProvider = (props) => {
 
     // Search Form
     const [searchQuery, setSearchQuery] = useState('')
-    const [currentPath,setCurrentPath]=useState('')
+    const [currentPath, setCurrentPath] = useState('')
 
-    const handleSearch = (item,path) => {
+    const handleSearch = (item, path) => {
         setSearchQuery(item)
         setCurrentPath(path)
     }
 
-    const ContextValue = { all_product, cartItems, searchQuery,currentPath, addToCart, removeFromCart, getTotalCartItem, handleSearch }
+    const filteredItems = all_product.filter((product) => product.name.toLowerCase().includes(searchQuery.toLowerCase()) || product.category.toLowerCase().includes(searchQuery.toLowerCase()))
+
+    const ContextValue = { all_product, cartItems, searchQuery, currentPath, filteredItems, addToCart, removeFromCart, getTotalCartItem, handleSearch }
 
 
     return (

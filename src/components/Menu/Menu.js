@@ -5,7 +5,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CartItems from "../CartItems/CartItems";
-import { SearchBar } from "../Search/Search";
+import SearchBar from "../SearchBar/SearchBar";
 
 function Menu() {
   const [show, setShow] = useState(false);

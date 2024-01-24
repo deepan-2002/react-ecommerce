@@ -1,15 +1,14 @@
-import { Badge, Button, Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import './Menu.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import fashioncart from '../../Assets/img/FASHIONCART.png'
 import CartItems from "../CartItems/CartItems";
+import { SearchBar } from "../Search/Search";
 
 function Menu() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -28,15 +27,7 @@ function Menu() {
             <Nav.Link href="/women">Women</Nav.Link>
             <Nav.Link href="/kid">Kids</Nav.Link>
           </Nav>
-          <Form className="d-flex m-auto">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-dark">Search</Button>
-          </Form>
+          <SearchBar/>
           <Link to="/login">
             <Button variant="dark" className="mt-2 mt-lg-0 me-2">
               Login

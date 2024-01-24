@@ -44,7 +44,11 @@ const CartItems = () => {
                 })
             )}
 
-            <p>{getTotalCartItem()}</p>
+            <div className='bg-light rounded p-3 mb-3 col-4'>
+                <p>Price: {getTotalCartItem()}</p>
+                <p>Shipping : Free</p>
+                <p>Total Amount: {getTotalCartItem()}</p>
+            </div>
 
         </>
     );

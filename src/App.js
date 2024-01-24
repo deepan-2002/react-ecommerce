@@ -10,6 +10,7 @@ import women_banner from './Assets/img/banner_women.png'
 import kids_banner from './Assets/img/banner_kids.png'
 import Product from './pages/Product/Product';
 import Cart from './pages/Cart/Cart';
+import SearchResult from './pages/SearchResult/SearchResult';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path=':productId' element={<Product />} />
           </Route>
           <Route path='/cart' element={<Cart />} />
+          <Route path='/search-result' element={<SearchResult/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>

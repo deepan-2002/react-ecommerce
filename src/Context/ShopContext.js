@@ -34,7 +34,16 @@ const ContextProvider = (props) => {
         return totalAmount
     }
 
-    const ContextValue = { all_product, cartItems, addToCart, removeFromCart, getTotalCartItem }
+    // Search Form
+    const [searchQuery, setSearchQuery] = useState('')
+    const [currentPath,setCurrentPath]=useState('')
+
+    const handleSearch = (item,path) => {
+        setSearchQuery(item)
+        setCurrentPath(path)
+    }
+
+    const ContextValue = { all_product, cartItems, searchQuery,currentPath, addToCart, removeFromCart, getTotalCartItem, handleSearch }
 
 
     return (

@@ -1,0 +1,27 @@
+.newsletter input{
+    flex: 1;
+    padding: 10px 20px;
+    border-radius: 15px 0 0 15px;
+    border: 0.5px solid #ccc;
+    max-width: 400px;
+}
+
+.newsletter button{
+    padding: 10px 15px;
+    border-radius: 0 15px 15px 0;
+    border: none;
+}
+
+.newsletter .input-container{
+   display: flex;
+   justify-content: center;
+}
+
+@media only screen and (max-width:600px){
+    .newsletter input, .newsletter button{
+        padding: 10px;
+    }
+    .newsletter input{
+        max-width: 200px;
+    }
+}

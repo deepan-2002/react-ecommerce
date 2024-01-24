@@ -28,8 +28,8 @@ const Item = (props) => {
                                 <div className='old-price'>
                                     ₹ {props.old_price}
                                 </div>
-                                <div className='cart-btn-container'>
-                                    <Button variant='dark' size='sm' onClick={handleAddToCart}>Add to Cart</Button>
+                                <div className='cart-btn-container ms-lg-auto'>
+                                    <button size='sm' onClick={handleAddToCart}>Add to Cart</button>
                                 </div>
                             </Card.Text>
                         </Card.Body>

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import './ProductDisplay.css'
 import { Button } from 'react-bootstrap'
-import data_product from '../../Assets/Data/data'
 import Item from '../Item/Item'
 import { ShopContext } from '../../Context/ShopContext'
 
@@ -9,8 +8,8 @@ const ProductDisplay = (props) => {
     const { product } = props
     const { addToCart, all_product } = useContext(ShopContext)
 
-    const getRandomItems = (category, count) => {
-        const categoryItems = all_product.filter(item => item.category === category);
+    const getRandomItems = (category, count, excludeProductId) => {
+        const categoryItems = all_product.filter(item => item.category === category && item.id !== excludeProductId);
         const randomItems = [];
         while (randomItems.length < count && categoryItems.length > 0) {
             const randomIndex = Math.floor(Math.random() * categoryItems.length);
@@ -21,7 +20,7 @@ const ProductDisplay = (props) => {
         return randomItems;
     };
 
-    const relatedProducts = getRandomItems(product.category, 4);
+    const relatedProducts = getRandomItems(product.category, 4, product.id);
 
     return (
         <>

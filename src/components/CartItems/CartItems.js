@@ -24,15 +24,6 @@ const CartItems = () => {
                                     <img src={e.image} alt={e.name} className='cart-img' />
                                     <p className='cart-title w-25'>{e.name}</p>
                                     <p className='cart-price'>{e.new_price}</p>
-                                    {/* <div className='add-btn-container'>
-                                        <button onClick={() => removeFromCart(e.id)}>
-                                            <FontAwesomeIcon icon={faMinus} />
-                                        </button>
-                                        <p>{cartItems[e.id]}</p>
-                                        <button onClick={() => addToCart(e.id)}>
-                                            <FontAwesomeIcon icon={faPlus} />
-                                        </button>
-                                    </div> */}
                                     <ButtonGroup>
                                         <Button variant="dark" onClick={() => removeFromCart(e.id)}>
                                             <FontAwesomeIcon icon={faMinus} />

@@ -1,50 +1,64 @@
-.item-container{
+.item-container {
     transition: 500ms;
     overflow: hidden;
 }
 
-.card:hover{
+.card:hover {
     box-shadow: 4px 4px 5px #ccc;
 }
 
-.card img{
+.card img {
     transition: transform 0.5s ease;
 }
 
-.card img:hover{
-     transform: scale(1.05);
+.card img:hover {
+    transform: scale(1.05);
 }
 
-.item-container .new-price{
+.item-container .new-price {
     font-size: 18px;
     font-weight: bold;
 }
 
-.item-container .old-price{
+.item-container .old-price {
     font-size: 14px;
     text-decoration: line-through;
     color: #434343;
 }
 
-.item-container .card-title{
+.item-container .card-title {
     font-size: 16px;
 }
 
-.item-container .price-container{
+.item-container .price-container {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.item-container .cart-btn-container{
-    align-self: flex-end;
+.item-container .cart-btn-container button {
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary);
+    color: #fff;
 }
-
-/* .item-container .cart-btn-container button {
-font-size: 12px;
-} */
 
 @media only screen and (max-width: 600px) {
-    .item-container .card-title{
+    .item-container .card-title {
         font-size: 12px;
     }
-  }
+}
+
+@media only screen and (min-width: 1200px) {
+    .item-container .cart-btn-container button {
+        font-size: inherit;
+        padding: 10px;
+        border-radius: 7px;
+        border: none;
+        background-color: var(--primary);
+        color: #fff;
+    }
+}

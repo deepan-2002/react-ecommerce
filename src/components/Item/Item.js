@@ -15,8 +15,8 @@ const Item = (props) => {
     return (
         <>
             <div className="col-6 col-md-3 g-4">
-                <Link to={`/product/${props.id}`} onClick={() => window.scrollTo(0, 0)}>
-                    <Card className="item-container h-100">
+                <Link to={`/product/${props.id}`}>
+                    <Card className="item-container h-100" onClick={() => window.scrollTo(0, 0)}>
                         <Card.Img variant="top" src={props.image} alt={props.name} />
                         <Card.Body style={{ borderTop: '1px solid #aaa' }}>
                             <Card.Title>{props.name}</Card.Title>

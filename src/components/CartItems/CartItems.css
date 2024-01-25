@@ -19,3 +19,8 @@
     display: flex;
     gap: 15px;
 }
+
+.total-cart-container{
+    position: absolute;
+    bottom: 130px;
+}

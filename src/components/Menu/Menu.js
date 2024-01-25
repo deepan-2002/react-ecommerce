@@ -43,10 +43,8 @@ function Menu() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <CartItems />
-              <div>
-                <Link to={'/cart'}>
-                  <button className='view-cart btn btn-dark' onClick={handleClose}>View Cart</button>
-                </Link>
+              <div className="view-cart bg-light">
+                  <a className='btn btn-dark' href="/cart" onClick={handleClose}>View Cart</a>
               </div>
             </Offcanvas.Body>
           </Offcanvas>

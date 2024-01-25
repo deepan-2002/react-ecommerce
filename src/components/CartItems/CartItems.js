@@ -23,7 +23,7 @@ const CartItems = () => {
                                 <div className='cart-items'>
                                     <img src={e.image} alt={e.name} className='cart-img' />
                                     <p className='cart-title w-25'>{e.name}</p>
-                                    <p className='cart-price'>{e.new_price}</p>
+                                    <p className='cart-price'>₹ {e.new_price}</p>
                                     <ButtonGroup>
                                         <Button variant="dark" onClick={() => removeFromCart(e.id)}>
                                             <FontAwesomeIcon icon={faMinus} />
@@ -35,8 +35,9 @@ const CartItems = () => {
                                             <FontAwesomeIcon icon={faPlus} />
                                         </Button>
                                     </ButtonGroup>
-                                    <p className='item-total'>{e.new_price * cartItems[e.id]}</p>
+                                    <p className='item-total'>₹ {e.new_price * cartItems[e.id]}</p>
                                 </div>
+                                <hr/>
                             </div>
                         );
                     }
@@ -44,10 +45,11 @@ const CartItems = () => {
                 })
             )}
 
-            <div className='bg-light rounded p-3 mb-3 col-4'>
-                <p>Price: {getTotalCartItem()}</p>
+            <div className='total-cart-container bg-light rounded p-3 mb-3 col-6'>
+                <p>Price: ₹ {getTotalCartItem()}</p>
                 <p>Shipping : Free</p>
-                <p>Total Amount: {getTotalCartItem()}</p>
+                <hr/>
+                <p>Total Amount: ₹ {getTotalCartItem()}</p>
             </div>
 
         </>

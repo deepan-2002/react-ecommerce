@@ -1,16 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import './Item.css'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { ShopContext } from '../../Context/ShopContext'
 
 const Item = (props) => {
-    const { addToCart } = useContext(ShopContext)
-
-    const handleAddToCart = (e) => {
-        e.preventDefault()
-        addToCart(props.id)
-    }
 
     return (
         <>
@@ -24,7 +17,6 @@ const Item = (props) => {
                             <div className='price-container'>
                                 <p className='new-price'>₹ {props.new_price}</p>
                                 <p className='old-price'>₹ {props.old_price}</p>
-                                <button size='sm' onClick={handleAddToCart}>Add to Cart</button>
                             </div>
                         </Card.Body>
                     </Card>

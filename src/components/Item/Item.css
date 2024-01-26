@@ -37,15 +37,6 @@
     align-items: center;
 }
 
-.item-container button {
-    font-size: 12px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--primary);
-    color: #fff;
-}
-
 @media only screen and (max-width: 600px) {
     .item-container .card-title {
         font-size: 12px;

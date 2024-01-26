@@ -25,7 +25,7 @@ function Menu() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/men">Men</Nav.Link>
             <Nav.Link href="/women">Women</Nav.Link>
-            <Nav.Link href="/kid">Kids</Nav.Link>
+            <Nav.Link href="/kids">Kids</Nav.Link>
           </Nav>
           <SearchBar/>
           <Link to="/login">

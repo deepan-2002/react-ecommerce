@@ -14,9 +14,7 @@ const ProductDisplay = (props) => {
         while (randomItems.length < count && categoryItems.length > 0) {
             const randomIndex = Math.floor(Math.random() * categoryItems.length);
             randomItems.push(categoryItems.splice(randomIndex, 1)[0]);
-            console.log(randomIndex);
         }
-        console.log(randomItems);
         return randomItems;
     };
 

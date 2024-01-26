@@ -7,9 +7,9 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
 const CartItems = () => {
-    const { all_product, addToCart, removeFromCart, cartItems, getTotalCartItem } = useContext(ShopContext);
+    const { all_product, addToCart, removeFromCart, cartItems: storedItems, getTotalCartItem } = useContext(ShopContext);
 
-    const noItemsAdded = Object.values(cartItems).every(quantity => quantity === 0);
+    const noItemsAdded = Object.values(storedItems).every(quantity => quantity === 0);
 
     return (
         <>
@@ -17,7 +17,7 @@ const CartItems = () => {
                 <p>No Items Added</p>
             ) : (
                 all_product.map((e) => {
-                    if (cartItems[e.id] > 0) {
+                    if (storedItems[e.id] > 0) {
                         return (
                             <div className='cart' key={e.id}>
                                 <div className='cart-items'>
@@ -29,13 +29,13 @@ const CartItems = () => {
                                             <FontAwesomeIcon icon={faMinus} />
                                         </Button>
                                         <Button variant='dark'>
-                                            {cartItems[e.id]}
+                                            {storedItems[e.id]}
                                         </Button>
                                         <Button variant="dark" onClick={() => addToCart(e.id)}>
                                             <FontAwesomeIcon icon={faPlus} />
                                         </Button>
                                     </ButtonGroup>
-                                    <p className='item-total'>₹ {e.new_price * cartItems[e.id]}</p>
+                                    <p className='item-total'>₹ {e.new_price * storedItems[e.id]}</p>
                                 </div>
                                 <hr/>
                             </div>
@@ -51,6 +51,8 @@ const CartItems = () => {
                 <hr/>
                 <p>Total Amount: ₹ {getTotalCartItem()}</p>
             </div>
+
+            
 
         </>
     );

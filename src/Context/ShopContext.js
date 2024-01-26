@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import all_product from '../Assets/Data/all_product'
 
 export const ShopContext = createContext(null)
@@ -13,10 +13,21 @@ const getDefaultCart = () => {
 
 const ContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart())
-    console.log(cartItems);
+
+
+    useEffect(() => {
+        const storedItems = JSON.parse(localStorage.getItem('cart-items'))
+        if (storedItems) {
+            setCartItems(storedItems)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('cart-items', JSON.stringify(cartItems))
+    }, [cartItems])
+
     const addToCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
-        console.log(cartItems);
     }
 
     const removeFromCart = (itemId) => {
@@ -45,7 +56,9 @@ const ContextProvider = (props) => {
 
     const filteredItems = all_product.filter((product) => product.name.toLowerCase().includes(searchQuery.toLowerCase()) || product.category.toLowerCase().includes(searchQuery.toLowerCase()))
 
-    const ContextValue = { all_product, cartItems, searchQuery, currentPath, filteredItems, addToCart, removeFromCart, getTotalCartItem, handleSearch }
+    const storedItems = JSON.parse(localStorage.getItem('cart-items')) || getDefaultCart()
+
+    const ContextValue = { all_product, cartItems, searchQuery, currentPath, filteredItems, storedItems, addToCart, removeFromCart, getTotalCartItem, handleSearch }
 
 
     return (

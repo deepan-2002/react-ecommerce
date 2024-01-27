@@ -1,0 +1,38 @@
+.login-container h2{
+    font-weight: 600;
+}
+
+.login-container .icon-container{
+    margin-top: 10px;
+}
+
+.login-container .icon-container svg{
+    margin: 0 10px;
+    font-size: x-large;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+
+.login-container .icon-container svg:hover{
+    color: var(--primary);
+}
+
+.login-container .forgot-password{
+    font-size: small;
+}
+
+.login-container .signup-col button{
+    margin-top: 10px;
+}
+
+@media only screen and (min-width:990px) and (max-width: 1024px) {
+    .login-container form {
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width:1024px){
+    .login-container form {
+        width: 50%;
+    }
+}

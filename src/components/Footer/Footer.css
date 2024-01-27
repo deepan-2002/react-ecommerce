@@ -27,9 +27,9 @@ footer p{
     color: inherit;
 }
 
-/* .footer-list a:hover, .icon-container a:hover {
+.footer-list a:hover, .icon-container a:hover {
     color: var(--primary);
-} */
+}
 
 .copyright {
     margin-top: 1.5rem;

@@ -9,14 +9,23 @@ import SearchBar from "../SearchBar/SearchBar";
 import { ShopContext } from "../../Context/ShopContext";
 
 function Menu() {
-  const {getTotalCartItem} = useContext(ShopContext)
+  const { getTotalCartItem } = useContext(ShopContext)
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true)
+    setExpanded(false)
+  };
+
+  const [expanded, setExpanded] = useState(false)
+
+  const handleButtonClick = () => {
+    setExpanded(false)
+  }
 
   return (
     <>
-      <Navbar expand="lg" sticky="top" className="bg-body-tertiary">
+      <Navbar expanded={expanded} expand="lg" sticky="top" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="/">
             {/* <img src={fashioncart} alt="fashion-cart" width={'150px'} /> */}
@@ -25,7 +34,7 @@ function Menu() {
           <Button variant="dark" className="ms-auto order-lg-2" onClick={handleShow}>
             <FontAwesomeIcon icon={faCartShopping} />
           </Button>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-2 order-lg-1" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-2 order-lg-1" onClick={() => setExpanded(!expanded)} />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">
               <Nav.Link href="/">Home</Nav.Link>
@@ -33,9 +42,9 @@ function Menu() {
               <Nav.Link href="/women">Women</Nav.Link>
               <Nav.Link href="/kids">Kids</Nav.Link>
             </Nav>
-            <SearchBar />
+            <SearchBar handleButtonClick={handleButtonClick} />
             <Link to="/login">
-              <Button variant="dark" className="mt-2 mt-lg-0 me-2">
+              <Button onClick={handleButtonClick} variant="dark" className="mt-2 mt-lg-0 me-2">
                 Login
               </Button>
             </Link>

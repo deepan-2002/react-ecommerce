@@ -24,17 +24,27 @@ const ProductDisplay = (props) => {
         <>
             <div className='container product-details'>
                 <div className="inner-container rounded">
-                    <div className="row">
+                    <div className="row align-items-center">
                         <div className="col-md-6 text-center">
-                            <img src={product.image} alt={product.name} className='img-fluid' />
+                            <img src={product.image} alt={product.name} className='img-fluid rounded' />
                         </div>
                         <div className="col-md-6 my-auto">
-                            <h2>{product.name}</h2>
-                            <div className='d-flex'>
-                                <p className='new_price'>₹ {product.new_price}</p>
-                                <p className='old_price'>₹ {product.old_price}</p>
+                            <h2 className='product-title mb-2'>{product.name}</h2>
+                            <div className='review-container'>
+                                <p><img src='https://lh3.googleusercontent.com/proxy/glArr1ugIiJ96jkD7xeJdjS-7AEzxqKcoQtlNpJJIfxXHbmkoGfuFbse_Uk6KLywUgsmPqsRzOZ5aL8u' alt='review' width={'100px'} />(762)</p>
                             </div>
+                            <div className='d-flex align-items-center'>
+                                <p className='old_price'>₹ {product.old_price}</p>
+                                <p className='new_price'>₹ {product.new_price}</p>
+                            </div>
+                            <p className='description my-3'>
+                                A Casual Wear, typically worn by {product.category} that combines a top and bottom, creating a one-piece outfit. It comes in various styles, lengths, and designs, suitable for different occasions.
+                            </p>
                             <Button variant='dark' onClick={() => addToCart(product.id)}>Add to Cart</Button>
+                            <div className='category-container mt-3'>
+                                <p>Category: {product.category}, Top, Casuals</p>
+                                <p>Tags: Modern, Latest</p>
+                            </div>
                         </div>
                     </div>
                 </div>

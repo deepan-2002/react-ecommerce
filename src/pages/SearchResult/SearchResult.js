@@ -19,7 +19,7 @@ const SearchResult = () => {
                 <>
                     <div>
                         <p className='title mt-3'>
-                            No Results Found for your search
+                            No Results Found for your search '{searchQuery}'
                         </p>
                     </div>
                     <div className='text-center'>

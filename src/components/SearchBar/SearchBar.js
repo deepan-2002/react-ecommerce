@@ -3,7 +3,7 @@ import { ShopContext } from '../../Context/ShopContext'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Form } from 'react-bootstrap'
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     const { handleSearch } = useContext(ShopContext)
     const [searchItem, setSearchItem] = useState('')
     const navigate = useNavigate()
@@ -26,7 +26,7 @@ const SearchBar = () => {
                 value={searchItem}
                 onChange={(e) => setSearchItem(e.target.value)}
             />
-            <Button type="submit" variant="outline-dark">Search</Button>
+            <Button type="submit" variant="outline-dark" onClick={props.handleButtonClick}>Search</Button>
         </Form>
     )
 }

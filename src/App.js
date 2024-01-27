@@ -11,6 +11,7 @@ import kids_banner from './Assets/img/banner_kids.png'
 import Product from './pages/Product/Product';
 import Cart from './pages/Cart/Cart';
 import SearchResult from './pages/SearchResult/SearchResult';
+import Signup from './pages/Signup/Signup';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup/>}/>
           <Route path='/men' element={<Categories banner={men_banner} category='men' />} />
           <Route path='/women' element={<Categories banner={women_banner} category='women' />} />
           <Route path='/kids' element={<Categories banner={kids_banner} category='kids' />} />

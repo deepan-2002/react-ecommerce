@@ -3,13 +3,29 @@ import { ShopContext } from '../../Context/ShopContext';
 import './CartOffcanvas.css';
 import './CartItems.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
 const CartItems = () => {
-    const { all_product, addToCart, removeFromCart, cartItems: storedItems, getTotalCartItem } = useContext(ShopContext);
+    const { all_product, addToCart, removeFromCart, cartItems, getTotalCartItem } = useContext(ShopContext);
 
-    const noItemsAdded = Object.values(storedItems).every(quantity => quantity === 0);
+    const noItemsAdded = Object.values(cartItems).every(quantity => quantity === 0);
+
+    const ShippingPrice = () =>{
+        const totalPrice = getTotalCartItem()
+        if (totalPrice < 500){
+            return '₹ 40'
+        }
+        else return 'Free'
+    }
+
+    const TotalPrice=()=>{
+        let totalPrice = getTotalCartItem()
+        if (totalPrice < 500){
+            return totalPrice + 40
+        }
+        else return totalPrice
+    }
 
     return (
         <>
@@ -17,27 +33,27 @@ const CartItems = () => {
                 <p>No Items Added</p>
             ) : (
                 all_product.map((e) => {
-                    if (storedItems[e.id] > 0) {
+                    if (cartItems[e.id] > 0) {
                         return (
                             <div className='cart' key={e.id}>
                                 <div className='cart-items'>
                                     <img src={e.image} alt={e.name} className='cart-img' />
-                                    <p className='cart-title w-25'>{e.name}</p>
+                                    <p className='cart-title'>{e.name}</p>
                                     <p className='cart-price'>₹ {e.new_price}</p>
-                                    <ButtonGroup>
+                                    <ButtonGroup size='sm'>
                                         <Button variant="dark" onClick={() => removeFromCart(e.id)}>
                                             <FontAwesomeIcon icon={faMinus} />
                                         </Button>
                                         <Button variant='dark'>
-                                            {storedItems[e.id]}
+                                            {cartItems[e.id]}
                                         </Button>
                                         <Button variant="dark" onClick={() => addToCart(e.id)}>
                                             <FontAwesomeIcon icon={faPlus} />
                                         </Button>
                                     </ButtonGroup>
-                                    <p className='item-total'>₹ {e.new_price * storedItems[e.id]}</p>
+                                    <p className='item-total'>₹ {e.new_price * cartItems[e.id]}</p>
                                 </div>
-                                <hr/>
+                                <hr />
                             </div>
                         );
                     }
@@ -45,15 +61,19 @@ const CartItems = () => {
                 })
             )}
 
-            <div className='total-cart-container bg-light rounded p-3 mb-3 col-6'>
-                <p>Price: ₹ {getTotalCartItem()}</p>
-                <p>Shipping : Free</p>
-                <hr/>
-                <p>Total Amount: ₹ {getTotalCartItem()}</p>
+            <div className='total-cart-container bg-light rounded p-3 mb-3 offset-md-6 col-12 col-md-6 text-end'>
+                <div className='total-flex'>
+                    <p>Price: </p>
+                    <p>₹ {getTotalCartItem()}</p>
+                </div>
+                <div className='total-flex'>
+                    <p>Shipping</p>
+                    <p>{ShippingPrice()}</p>
+                </div>
+                <hr />
+                <p>Total Amount: ₹ {TotalPrice()}</p>
+                <Button variant='dark'>Checkout <FontAwesomeIcon icon={faArrowRight}/></Button>
             </div>
-
-            
-
         </>
     );
 };

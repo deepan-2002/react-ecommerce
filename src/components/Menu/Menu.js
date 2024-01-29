@@ -9,7 +9,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import { ShopContext } from "../../Context/ShopContext";
 
 function Menu() {
-  const { getTotalCartItem } = useContext(ShopContext)
+  const { getTotalCartItem, getNoOfCartItem } = useContext(ShopContext)
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => {
@@ -31,9 +31,13 @@ function Menu() {
             {/* <img src={fashioncart} alt="fashion-cart" width={'150px'} /> */}
             FASHIONCART
           </Navbar.Brand>
-          <Button variant="dark" className="ms-auto order-lg-2" onClick={handleShow}>
+          <Button variant="dark" className="ms-auto order-lg-2 cart-btn" onClick={handleShow}>
             <FontAwesomeIcon icon={faCartShopping} />
+            <div className="item-count">
+              {getNoOfCartItem()}
+          </div>
           </Button>
+          
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-2 order-lg-1" onClick={() => setExpanded(!expanded)} />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">

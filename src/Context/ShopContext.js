@@ -45,6 +45,16 @@ const ContextProvider = (props) => {
         return totalAmount
     }
 
+    const getNoOfCartItem=()=>{
+        let quantity = 0
+        for (let item in cartItems) {
+            if (cartItems[item] > 0) {
+                quantity +=  cartItems[item]
+            }
+        }
+        return quantity
+    }
+
     // Search Form
     const [searchQuery, setSearchQuery] = useState('')
     const [currentPath, setCurrentPath] = useState('')
@@ -56,9 +66,7 @@ const ContextProvider = (props) => {
 
     const filteredItems = all_product.filter((product) => product.name.toLowerCase().includes(searchQuery.toLowerCase()) || product.category.toLowerCase().includes(searchQuery.toLowerCase()))
 
-    const storedItems = JSON.parse(localStorage.getItem('cart-items')) || getDefaultCart()
-
-    const ContextValue = { all_product, cartItems, searchQuery, currentPath, filteredItems, storedItems, addToCart, removeFromCart, getTotalCartItem, handleSearch }
+    const ContextValue = { all_product, cartItems, searchQuery, currentPath, filteredItems, addToCart, removeFromCart, getTotalCartItem, handleSearch,getNoOfCartItem }
 
 
     return (

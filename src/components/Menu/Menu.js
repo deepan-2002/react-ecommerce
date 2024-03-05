@@ -3,10 +3,10 @@ import './Menu.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import CartItems from "../CartItems/CartItems";
 import SearchBar from "../SearchBar/SearchBar";
 import { ShopContext } from "../../Context/ShopContext";
+import ModalComponent from "../Modal/Modal";
 
 function Menu() {
   const { getTotalCartItem, getNoOfCartItem } = useContext(ShopContext)
@@ -17,10 +17,16 @@ function Menu() {
     setExpanded(false)
   };
 
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   const handleButtonClick = () => {
-    setExpanded(false)
+    setExpanded(false);
+  }
+
+  const handleLoginButton=()=>{
+    setExpanded(false);
+    setModalShow(true);
   }
 
   return (
@@ -35,9 +41,9 @@ function Menu() {
             <FontAwesomeIcon icon={faCartShopping} />
             <div className="item-count">
               {getNoOfCartItem()}
-          </div>
+            </div>
           </Button>
-          
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-2 order-lg-1" onClick={() => setExpanded(!expanded)} />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">
@@ -47,12 +53,13 @@ function Menu() {
               <Nav.Link href="/kids">Kids</Nav.Link>
             </Nav>
             <SearchBar handleButtonClick={handleButtonClick} />
-            <Link to="/login">
-              <Button onClick={handleButtonClick} variant="dark" className="mt-2 mt-lg-0 me-2">
-                Login
-              </Button>
-            </Link>
-
+            <Button onClick={handleLoginButton} variant="dark" className="mt-2 mt-lg-0 me-2">
+              Login
+            </Button>
+            <ModalComponent
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
           </Navbar.Collapse>
         </Container>
       </Navbar>

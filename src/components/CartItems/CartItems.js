@@ -61,7 +61,8 @@ const CartItems = () => {
                 })
             )}
 
-            <div className='total-cart-container bg-light rounded p-3 mb-3 offset-md-6 col-12 col-md-6 text-end'>
+            {getTotalCartItem() ? (
+                <div className='total-cart-container bg-light rounded p-3 mb-3 offset-md-6 col-12 col-md-6 text-end'>
                 <div className='total-flex'>
                     <p>Price: </p>
                     <p>₹ {getTotalCartItem()}</p>
@@ -74,6 +75,7 @@ const CartItems = () => {
                 <p>Total Amount: ₹ {TotalPrice()}</p>
                 <Button variant='dark'>Checkout <FontAwesomeIcon icon={faArrowRight}/></Button>
             </div>
+            ) : ""}
         </>
     );
 };

@@ -1,11 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Signup.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Form } from 'react-bootstrap'
 import { faFacebook, faGoogle, faXTwitter } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Signup = () => {
+  const [signUp, setSignUp] = useState({
+    id: '',
+    name: '',
+    email: '',
+    password: ''
+  })
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setSignUp({ ...signUp, [name]: value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const response = await axios.post('https://65210a08a4199548356cbe00.mockapi.io/userinfo', signUp)
+      console.log(response);
+    }
+    catch (e) {
+      console.error(e, 'Something went error');
+    }
+
+    setSignUp({
+      id: '',
+      name: '',
+      email: '',
+      password: ''
+    })
+  }
+
   return (
     <>
       <div className='container bg-light my-5 rounded p-2 login-container'>
@@ -19,15 +51,15 @@ const Signup = () => {
               <FontAwesomeIcon icon={faXTwitter} />
             </div>
             <hr />
-            <Form className='m-auto'>
+            <Form className='m-auto' onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formGroupName">
-                <Form.Control type="text" placeholder="Name" name='name' />
+                <Form.Control type="text" placeholder="Name" name='name' onChange={handleInputChange} value={signUp.name} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupEmail">
-                <Form.Control type="email" placeholder="Email" name='email' />
+                <Form.Control type="email" placeholder="Email" name='email' onChange={handleInputChange} value={signUp.email} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formGroupPassword">
-                <Form.Control type="password" placeholder="Password" name='password' />
+                <Form.Control type="password" placeholder="Password" name='password' onChange={handleInputChange} value={signUp.password} />
               </Form.Group>
 
               <Button variant="dark" type="submit" className='w-100'>
